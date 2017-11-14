@@ -1,0 +1,21 @@
+# a = nil
+# File.open('peliculas.txt', 'r') {|file| a = file.readlines}
+# # puts a.split.reject { |w| w =~ /(\W|_|\d)/ }.count
+
+# # puts 'i have no idea what i just did but it worked'
+
+
+##REAdlines entrega un arreglo donde cada linea del arcihvo es un item del arreglo.
+def contador_de_palabras(archivo='peliculas.txt')
+  file = File.open(archivo, 'r')
+  data = file.readlines
+  file.close
+
+  total = 0
+
+  data.each do |line|
+    total = total + line.split(' ').count
+  end
+  return total
+end
+puts contador_de_palabras
